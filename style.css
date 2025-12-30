@@ -50,3 +50,17 @@ nav a {
 h2 {
     margin-top: 30px;
 }
+.team-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.team-name{
+  flex:1;
+  white-space:nowrap;
+}
+
+.team-score{
+  font-weight:700;
+}
