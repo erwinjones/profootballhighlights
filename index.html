@@ -1,27 +1,152 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- PFH_BUILD v4.6.2 -->
+<!doctype html>
+<html lang="en" data-theme="dark" data-mode="mvp"> 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pro Football Highlights</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pro Football Highlights – Live NFL Scoreboard</title>
+  <meta name="description" content="Weekly NFL scoreboard and season overview with a clean, mobile-friendly layout." />
+  <link rel="stylesheet" href="/assets/style.css?v=462" />
 </head>
 <body>
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <h1>Pro Football Highlights</h1>
+        <div class="sub">Live NFL Scoreboard · Championship Rounds</div>
+      </div>
+      <nav class="nav" aria-label="Primary">
+        <a href="#weekly">Scoreboard</a>
+        <a href="#legal">Legal</a>
+        <button id="themeToggle" class="btn" type="button">Light Mode</button>
+      </nav>
+    </header>
 
-<header>
-    <h1>Pro Football Highlights</h1>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="scoreboard.html">Scoreboard</a>
-        <a href="standings.html">Standings</a>
-    </nav>
-</header>
+    <div class="card">
+      <p>
+        Pro Football Highlights is designed to give fans a clear, organized view of the season from start to finish.
+        Our goal is to make it easier to explore weekly matchups, sample player statistics, injury designations,
+        and seasonal developments in one clean, mobile-friendly layout.
+      </p>
+      <p class="small">
+        Live scoreboard data below is pulled from a public ESPN endpoint. This site is independent and unofficial.
+      </p>
+    </div>
 
-<section class="welcome">
-    <h2>Welcome to Pro Football Highlights</h2>
-    <p>Your clean, fast, ad‑free home for NFL scores and standings.</p>
-</section>
+<section class="card" id="weekly">
+      <div class="label">Live Scoreboard</div>
+      <p class="small">MVP mode is ON — showing the live scoreboard only for a clean, playoff-ready experience.</p>
+      <div class="small" style="margin-top:8px">Auto-refresh is OFF by default to save bandwidth. Use “Refresh live data”, or enable 5‑minute auto-refresh:</div>
 
+      <label class="small" style="display:flex;gap:8px;align-items:center;margin-top:8px">
+        <input id="autoRefreshToggle" type="checkbox" />
+        Auto-refresh every 5 minutes
+      </label>
+
+      <div class="grid" style="margin-top:10px">
+        <div>
+          <button id="refreshBtn" class="btn" type="button">Refresh live data</button>
+</div>
+        <div>
+          <div class="small" id="dataStatus">—</div>
+        </div>
+      </div>
+
+      <div id="scoreboard" style="margin-top:10px">
+        <div class="small">Loading…</div>
+      </div>
+      <hr class="sep" />
+      <div class="small">
+        Data source note: Game details may link out to ESPN “Gamecast” when available.
+      </div>
+    </section>
+
+    <section class="card" id="standingsCard">
+      <div class="label">Division Standings</div>
+      <p class="small">Win–loss records by division. (Unofficial; pulled from Wikipedia standings.)</p>
+      <div class="grid" style="margin-top:10px">
+        <div class="small" id="standingsStatus">Loading standings…</div>
+      </div>
+      <div id="standings" style="margin-top:10px">
+        <div class="small">Loading…</div>
+      </div>
+    </section>
+
+
+
+    <section class="card mvp-hidden" id="injuries">
+      <div class="label">Injury Report</div>
+      <p class="small">
+        Next step: wire a live injuries feed by team. For now, this table remains a placeholder so your layout stays consistent.
+      </p>
+      <div style="overflow:auto">
+        <table style="width:100%; border-collapse:collapse">
+          <thead>
+            <tr>
+              <th style="text-align:left; padding:10px; border-bottom:1px solid var(--border)">Player</th>
+              <th style="text-align:left; padding:10px; border-bottom:1px solid var(--border)">Team</th>
+              <th style="text-align:left; padding:10px; border-bottom:1px solid var(--border)">Position</th>
+              <th style="text-align:left; padding:10px; border-bottom:1px solid var(--border)">Status</th>
+              <th style="text-align:left; padding:10px; border-bottom:1px solid var(--border)">Practice</th>
+              <th style="text-align:left; padding:10px; border-bottom:1px solid var(--border)">Injury</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:10px; border-bottom:1px solid var(--border)">John Sample</td>
+              <td style="padding:10px; border-bottom:1px solid var(--border)">Dallas</td>
+              <td style="padding:10px; border-bottom:1px solid var(--border)">WR</td>
+              <td style="padding:10px; border-bottom:1px solid var(--border)">Questionable</td>
+              <td style="padding:10px; border-bottom:1px solid var(--border)">Limited</td>
+              <td style="padding:10px; border-bottom:1px solid var(--border)">Hamstring</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card mvp-hidden" id="teams">
+      <div class="label">Teams · Divisions · Conferences</div>
+      <p class="small">We can also make this live (team list + division structure) from the same provider.</p>
+      <div class="grid" style="margin-top:10px">
+        <div>
+          <h3 style="margin:0 0 8px 0">AFC East</h3>
+          <ul class="small" style="margin:0; padding-left:18px">
+            <li>Buffalo Bills</li><li>Miami Dolphins</li><li>New England Patriots</li><li>New York Jets</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="margin:0 0 8px 0">NFC East</h3>
+          <ul class="small" style="margin:0; padding-left:18px">
+            <li>Dallas Cowboys</li><li>New York Giants</li><li>Philadelphia Eagles</li><li>Washington Commanders</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="legal">
+      <div class="label">Legal Notices & Disclaimers</div>
+      <div class="small">
+        <p><strong>Independent & Unofficial:</strong> This site is an independent football information resource. It is not endorsed by, sponsored by, or officially affiliated with the NFL or its teams.</p>
+        <p><strong>Information Only – No Guarantees:</strong> We make no guarantees as to accuracy, timeliness, or completeness.</p>
+        <p><strong>No Wagering or Financial Advice:</strong> Nothing on this site should be construed as financial, investment, or wagering advice.</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Use</a>
+        <a href="/disclaimer">Disclaimer</a>
+        <a href="/contact">Contact</a>
+        <a href="/articles">Articles</a>
+      </div>
+      <div class="small">
+        Data note: Scoreboard content is pulled from a public ESPN endpoint for fan/informational use.
+      </div>
+    </footer>
+  </div>
+
+  <script src="/assets/app.js?v=462"></script>
 </body>
 </html>
-

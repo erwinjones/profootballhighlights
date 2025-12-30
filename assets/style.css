@@ -1,0 +1,131 @@
+:root{
+  --bg:#0b1220;
+  --panel:#0f1b33;
+  --text:#e8eefc;
+  --muted:#9bb0d1;
+  --border:rgba(255,255,255,.08);
+  --accent:#4ea1ff;
+  --good:#35c27c;
+  --bad:#ff5c7a;
+}
+[data-theme="light"]{
+  --bg:#ffffff;
+  --panel:#f4f7ff;
+  --text:#0f172a;
+  --muted:#4b5563;
+  --border:rgba(15,23,42,.12);
+  --accent:#1d4ed8;
+  --good:#059669;
+  --bad:#dc2626;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.45;
+}
+a{color:var(--accent); text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1100px; margin:0 auto; padding:20px}
+.header{
+  display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap;
+  border-bottom:1px solid var(--border); padding-bottom:14px; margin-bottom:18px;
+}
+.brand h1{margin:0; font-size:32px}
+.brand .sub{margin-top:6px; color:var(--muted)}
+.nav{
+  display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:flex-end;
+}
+.nav a{padding:8px 10px; border:1px solid var(--border); border-radius:999px; background:rgba(255,255,255,.02)}
+.btn{
+  cursor:pointer; border:1px solid var(--border); background:rgba(255,255,255,.03);
+  color:var(--text); padding:8px 12px; border-radius:999px; font-weight:600;
+}
+.btn:hover{filter:brightness(1.07)}
+.card{
+  border:1px solid var(--border);
+  background:var(--panel);
+  border-radius:16px;
+  padding:16px;
+  margin:14px 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,.12);
+}
+.grid{
+  display:grid; grid-template-columns: 1fr 1fr; gap:14px;
+}
+@media (max-width: 900px){ .grid{grid-template-columns:1fr} }
+.label{font-size:12px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted)}
+.select{
+  width:100%; padding:10px 12px; border-radius:12px;
+  border:1px solid var(--border); background:rgba(255,255,255,.03); color:var(--text);
+}
+.small{font-size:14px; color:var(--muted)}
+.notice{
+  border-left:4px solid var(--accent);
+  padding:10px 12px;
+  background:rgba(78,161,255,.08);
+  border-radius:12px;
+}
+.scoreboard{
+  display:grid; grid-template-columns: repeat(2, 1fr); gap:14px;
+}
+@media (max-width: 900px){ .scoreboard{grid-template-columns:1fr} }
+.game{
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:14px;
+  background:rgba(255,255,255,.02);
+}
+.game .meta{display:flex; justify-content:space-between; gap:10px; color:var(--muted); font-size:13px; margin-bottom:10px}
+.teams{display:grid; gap:8px}
+.teamrow{display:flex; justify-content:space-between; gap:10px; align-items:center}
+.teamname{font-weight:700}
+.score{font-variant-numeric: tabular-nums; font-weight:800}
+.badge{
+  font-size:12px; padding:3px 8px; border-radius:999px; border:1px solid var(--border);
+  color:var(--muted);
+}
+.badge.live{color:var(--good); border-color:rgba(53,194,124,.35); background:rgba(53,194,124,.10)}
+.badge.final{color:var(--muted)}
+.badge.upcoming{color:var(--accent); border-color:rgba(78,161,255,.35); background:rgba(78,161,255,.08)}
+.footer{
+  margin-top:22px; padding-top:16px; border-top:1px solid var(--border);
+  color:var(--muted); font-size:14px
+}
+.footer-links{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:8px}
+hr.sep{border:0; border-top:1px solid var(--border); margin:14px 0}
+/* MVP mode: hide non-essential sections without deleting them */
+html[data-mode="mvp"] .mvp-hidden{display:none !important}
+
+/* MVP standings tabs */
+.tabs{
+  display:flex;
+  gap:8px;
+  margin-top:10px;
+  margin-bottom:6px;
+}
+.tab{
+  appearance:none;
+  border:1px solid var(--border);
+  background:transparent;
+  color:var(--text);
+  padding:8px 12px;
+  border-radius:999px;
+  cursor:pointer;
+  font-weight:600;
+}
+.tab.active{
+  background:rgba(78,161,255,.18);
+  border-color:rgba(78,161,255,.45);
+}
+.standings-table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:520px;
+}
+.th-left{ text-align:left; padding:10px; border-bottom:1px solid var(--border); }
+.th-num{ text-align:right; padding:10px; border-bottom:1px solid var(--border); }
+.td-left{ padding:10px; border-bottom:1px solid var(--border); }
+.td-num{ padding:10px; border-bottom:1px solid var(--border); text-align:right; }
