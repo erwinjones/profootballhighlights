@@ -64,3 +64,9 @@ h2 {
 .team-score{
   font-weight:700;
 }
+.team{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
