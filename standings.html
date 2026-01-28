@@ -1,57 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Standings</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pro Football Highlights – Division Standings</title>
+  <meta name="description" content="NFL division standings and season overview." />
+  <link rel="stylesheet" href="/assets/style.css?v=462" />
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/favicon.ico">
 </head>
 <body>
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <h1>Pro Football Highlights</h1>
+        <div class="sub">Division Standings</div>
+      </div>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/scoreboard">Scoreboard</a>
+      </nav>
+    </header>
 
-<header>
-    <h1>NFL Standings</h1>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="scoreboard.html">Scoreboard</a>
-        <a href="standings.html">Standings</a>
-    </nav>
-</header>
+    <section class="card">
+      <div class="label">Standings</div>
+      <div id="standings">
+        <div class="small">Loading…</div>
+      </div>
+    </section>
 
-<section class="standings">
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Use</a>
+        <a href="/disclaimer">Disclaimer</a>
+      </div>
+    </footer>
+  </div>
 
-    <h2>AFC East</h2>
-    <ul>
-        <li>Buffalo Bills — 10–6</li>
-        <li>Miami Dolphins — 9–7</li>
-        <li>New York Jets — 7–9</li>
-        <li>New England Patriots — 5–11</li>
-    </ul>
-
-    <h2>AFC West</h2>
-    <ul>
-        <li>Kansas City Chiefs — 12–4</li>
-        <li>Los Angeles Chargers — 8–8</li>
-        <li>Las Vegas Raiders — 7–9</li>
-        <li>Denver Broncos — 5–11</li>
-    </ul>
-
-    <h2>NFC East</h2>
-    <ul>
-        <li>Philadelphia Eagles — 12–4</li>
-        <li>Dallas Cowboys — 11–5</li>
-        <li>New York Giants — 6–10</li>
-        <li>Washington Commanders — 4–12</li>
-    </ul>
-
-    <h2>NFC West</h2>
-    <ul>
-        <li>San Francisco 49ers — 13–3</li>
-        <li>Seattle Seahawks — 9–7</li>
-        <li>Los Angeles Rams — 7–9</li>
-        <li>Arizona Cardinals — 5–11</li>
-    </ul>
-
-</section>
-
+  <script src="/assets/app.js?v=462"></script>
 </body>
 </html>
