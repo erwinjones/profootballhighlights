@@ -7,6 +7,8 @@
   <title>Pro Football Highlights – Live NFL Scoreboard</title>
   <meta name="description" content="Weekly NFL scoreboard and season overview with a clean, mobile-friendly layout." />
   <link rel="stylesheet" href="/assets/style.css?v=462" />
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/favicon.ico">
 </head>
 <body>
   <div class="container">
@@ -33,10 +35,12 @@
       </p>
     </div>
 
-<section class="card" id="weekly">
+    <section class="card" id="weekly">
       <div class="label">Live Scoreboard</div>
       <p class="small">MVP mode is ON — showing the live scoreboard only for a clean, playoff-ready experience.</p>
-      <div class="small" style="margin-top:8px">Auto-refresh is OFF by default to save bandwidth. Use “Refresh live data”, or enable 5‑minute auto-refresh:</div>
+      <div class="small" style="margin-top:8px">
+        Auto-refresh is OFF by default to save bandwidth. Use “Refresh live data”, or enable 5-minute auto-refresh:
+      </div>
 
       <label class="small" style="display:flex;gap:8px;align-items:center;margin-top:8px">
         <input id="autoRefreshToggle" type="checkbox" />
@@ -46,7 +50,7 @@
       <div class="grid" style="margin-top:10px">
         <div>
           <button id="refreshBtn" class="btn" type="button">Refresh live data</button>
-</div>
+        </div>
         <div>
           <div class="small" id="dataStatus">—</div>
         </div>
@@ -71,8 +75,6 @@
         <div class="small">Loading…</div>
       </div>
     </section>
-
-
 
     <section class="card mvp-hidden" id="injuries">
       <div class="label">Injury Report</div>
@@ -117,36 +119,4 @@
         </div>
         <div>
           <h3 style="margin:0 0 8px 0">NFC East</h3>
-          <ul class="small" style="margin:0; padding-left:18px">
-            <li>Dallas Cowboys</li><li>New York Giants</li><li>Philadelphia Eagles</li><li>Washington Commanders</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="card" id="legal">
-      <div class="label">Legal Notices & Disclaimers</div>
-      <div class="small">
-        <p><strong>Independent & Unofficial:</strong> This site is an independent football information resource. It is not endorsed by, sponsored by, or officially affiliated with the NFL or its teams.</p>
-        <p><strong>Information Only – No Guarantees:</strong> We make no guarantees as to accuracy, timeliness, or completeness.</p>
-        <p><strong>No Wagering or Financial Advice:</strong> Nothing on this site should be construed as financial, investment, or wagering advice.</p>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="footer-links">
-        <a href="/privacy">Privacy Policy</a>
-        <a href="/terms">Terms of Use</a>
-        <a href="/disclaimer">Disclaimer</a>
-        <a href="/contact">Contact</a>
-        <a href="/articles">Articles</a>
-      </div>
-      <div class="small">
-        Data note: Scoreboard content is pulled from a public ESPN endpoint for fan/informational use.
-      </div>
-    </footer>
-  </div>
-
-  <script src="/assets/app.js?v=462"></script>
-</body>
-</html>
+          <ul c
