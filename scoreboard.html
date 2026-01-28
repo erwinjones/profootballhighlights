@@ -1,73 +1,43 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Scoreboard</title>
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- hard override so scores stay beside team names -->
-  <style>
-    .team{display:flex; justify-content:space-between; align-items:center; width:100%;}
-    .team .score{display:inline-block; margin-left:auto; white-space:nowrap;}
-  </style>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pro Football Highlights – Weekly Scoreboard</title>
+  <meta name="description" content="Weekly NFL scoreboard with live updates." />
+  <link rel="stylesheet" href="/assets/style.css?v=462" />
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/favicon.ico">
 </head>
 <body>
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <h1>Pro Football Highlights</h1>
+        <div class="sub">Weekly NFL Scoreboard</div>
+      </div>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/standings">Standings</a>
+      </nav>
+    </header>
 
-<section class="scoreboard-container">
-  <div class="game">
-    <div class="team">Cowboys <span class="score">30</span></div>
-    <div class="team">Commanders <span class="score">23</span></div>
-  </div>
-  <div class="game">
-    <div class="team">Chiefs <span class="score">20</span></div>
-    <div class="team">Broncos <span class="score">13</span></div>
-  </div>
-  <div class="game">
-    <div class="team">Texans <span class="score">20</span></div>
-    <div class="team">Chargers <span class="score">16</span></div>
-  </div>
-  <div class="game">
-    <div class="team">Ravens <span class="score">41</span></div>
-    <div class="team">Packers <span class="score">24</span></div>
-  </div>
-  <div class="game">
-    <div class="team">Patriots <span class="score">42</span></div>
-    <div class="team">Jets <span class="score">10</span></div>
-  </div>
-  <div class="game">
-    <div class="team">Dolphins <span class="score">20</span></div>
-    <div class="team">Buccaneers <span class="score">17</span></div>
-  </div>
-  <div class="game">
-    <div class="team">Bengals <span class="score">37</span></div>
-    <div class="team">Cardinals <span class="score">14</span></div>
-  </div>
-  <div class="game">
-    <div class="team">Browns <span class="score">13</span></div>
-    <div class="team">Steelers <span class="score">6</span></div>
-  </div>
-  <div class="game">
-    <div class="team">Saints <span class="score">34</span></div>
-    <div class="team">Titans <span class="score">26</span></div>
-  </div>
-  <div class="game">
-    <div class="team">Seahawks <span class="score">27</span></div>
-    <div class="team">Panthers <span class="score">10</span></div>
-  </div>
-  <div class="game">
-    <div class="team">Giants <span class="score">34</span></div>
-    <div class="team">Raiders <span class="score">10</span></div>
-  </div>
-  <div class="game">
-    <div class="team">Eagles <span class="score">13</span></div>
-    <div class="team">Bills <span class="score">12</span></div>
-  </div>
-  <div class="game">
-    <div class="team">Jaguars <span class="score">23</span></div>
-    <div class="team">Colts <span class="score">17</span></div>
-  </div>
-</section>
+    <section class="card">
+      <div class="label">Scoreboard</div>
+      <div id="scoreboard">
+        <div class="small">Loading…</div>
+      </div>
+    </section>
 
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Use</a>
+        <a href="/disclaimer">Disclaimer</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/assets/app.js?v=462"></script>
 </body>
 </html>
