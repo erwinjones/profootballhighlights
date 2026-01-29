@@ -311,10 +311,18 @@
     });
   }
 
-  // Init
+ // Init (wait for DOM so elements exist on every page)
+function boot(){
   initTheme();
   initRefresh();
   initHybrid();
   loadScoreboard();
   loadStandings();
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", boot);
+} else {
+  boot();
+}
 })();
