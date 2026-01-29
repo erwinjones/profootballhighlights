@@ -9,6 +9,9 @@
   const boardEl   = document.getElementById("scoreboard");
   const standingsEl = document.getElementById("standings");
   const standingsStatusEl = document.getElementById("standingsStatus");
+const weekSelect = document.getElementById("weekSelect");
+const weekStatusEl = document.getElementById("weekStatus");
+const WEEK_KEY = "pfh_week_choice";
 
   const autoToggle = document.getElementById("autoRefreshToggle");
   let autoTimer = null;
@@ -316,6 +319,8 @@ function boot(){
   initTheme();
   initRefresh();
   initHybrid();
+ initWeekPicker();
+
   loadScoreboard();
   loadStandings();
 }
