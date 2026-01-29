@@ -20,9 +20,11 @@
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem(THEME_KEY, theme);
     if(themeBtn){
+      // If theme is light, button should offer Dark Mode, and vice versa
       themeBtn.textContent = theme === "light" ? "Dark Mode" : "Light Mode";
     }
   }
+
   function initTheme(){
     const saved = localStorage.getItem(THEME_KEY);
     if(saved === "light" || saved === "dark"){
@@ -30,13 +32,8 @@
     } else {
       setTheme("dark");
     }
-    if(themeBtn){
-      function setTheme(theme) {
-  document.documentElement.setAttribute("data-theme", theme);
-  localStorage.setItem("pfh_theme", theme);
-  themeBtn.textContent = theme === "dark" ? "Light Mode" : "Dark Mode";
-}
 
+    if(themeBtn){
       themeBtn.addEventListener("click", () => {
         const current = document.documentElement.getAttribute("data-theme") || "dark";
         setTheme(current === "dark" ? "light" : "dark");
@@ -122,7 +119,6 @@
   }
 
   function buildTabs(divisions){
-    // divisions: { afc: { "AFC East": [rows...] }, nfc: {...} }
     const tabWrap = document.createElement("div");
     tabWrap.className = "tabs";
 
@@ -193,7 +189,6 @@
   }
 
   function parseWikiHTML(html){
-    // Return divisions grouped by conference.
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, "text/html");
     const tables = [...doc.querySelectorAll("table.wikitable, table.sortable, table")];
@@ -206,7 +201,6 @@
     function norm(s){ return (s||"").replace(/\s+/g," ").trim(); }
 
     for(const tbl of tables){
-      // Try to detect division name by caption or preceding header text
       let divName = "";
       const cap = tbl.querySelector("caption");
       if(cap) divName = norm(cap.textContent);
@@ -216,27 +210,23 @@
       }
       if(!divMap[divName]) continue;
 
-      const rows = [...tbl.querySelectorAll("tr")].slice(1); // skip header
+      const rows = [...tbl.querySelectorAll("tr")].slice(1);
       for(const tr of rows){
         const tds = [...tr.querySelectorAll("th,td")];
         if(tds.length < 4) continue;
         const team = norm(tds[0].textContent).replace(/\*+$/,"");
         if(!team) continue;
 
-        // Find W/L/T/PCT columns by scanning header, but fallback to typical order.
-        // Many wiki tables are: Team | W | L | T | PCT ...
         const w = norm(tds[1]?.textContent);
         const l = norm(tds[2]?.textContent);
         const t = norm(tds[3]?.textContent);
         const pct = norm(tds[4]?.textContent) || "";
-        // Validate numeric-ish
         if(!/^\d+/.test(w) || !/^\d+/.test(l)) continue;
 
         divMap[divName].push({team, w, l, t, pct});
       }
     }
 
-    // Split conferences
     const afc = {}, nfc = {};
     for(const [divName, rows] of Object.entries(divMap)){
       if(rows.length === 0) continue;
