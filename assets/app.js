@@ -31,6 +31,12 @@
       setTheme("dark");
     }
     if(themeBtn){
+      function setTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  localStorage.setItem("pfh_theme", theme);
+  themeBtn.textContent = theme === "dark" ? "Light Mode" : "Dark Mode";
+}
+
       themeBtn.addEventListener("click", () => {
         const current = document.documentElement.getAttribute("data-theme") || "dark";
         setTheme(current === "dark" ? "light" : "dark");
